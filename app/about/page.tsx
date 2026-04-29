@@ -64,32 +64,32 @@ const AboutPage = () => {
           </motion.div>
         </div>
 
-        {/* Section 2: Our Values */}
-        <div className="mb-32">
-          <div className="text-center mb-16">
-            <h3 className="text-white text-3xl md:text-4xl font-bold uppercase">The <span className="text-primary">Core</span> Values</h3>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { icon: <Users />, title: "Community", desc: "A place where strangers become friends over great music." },
-              { icon: <Music2 />, title: "Quality Music", desc: "Promoting local talent and the best live bands in the country." },
-              { icon: <Utensils />, title: "Great Food", desc: "Fusion bites designed perfectly to complement your drinks." },
-              { icon: <ShieldCheck />, title: "Safe Space", desc: "A premium, secure environment for everyone to enjoy." },
-            ].map((value, index) => (
+        {/* Section 2: Our Values - Updated Section */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {[
+            { icon: Users, title: "Community", desc: "A place where strangers become friends over great music." },
+            { icon: Music2, title: "Quality Music", desc: "Promoting local talent and the best live bands in the country." },
+            { icon: Utensils, title: "Great Food", desc: "Fusion bites designed perfectly to complement your drinks." },
+            { icon: ShieldCheck, title: "Safe Space", desc: "A premium, secure environment for everyone to enjoy." },
+          ].map((value, index) => {
+            // Icon eka Component ekak widiyata variable ekakata ganna (Upper case 'I' use karanna)
+            const Icon = value.icon;
+            
+            return (
               <motion.div 
                 key={index}
                 whileHover={{ y: -10 }}
                 className="p-10 rounded-3xl bg-zinc-900/30 border border-white/5 text-center group hover:border-primary/50 transition-all"
               >
                 <div className="w-16 h-16 bg-black rounded-2xl flex items-center justify-center text-primary mx-auto mb-6 border border-primary/10 group-hover:bg-primary group-hover:text-black transition-all">
-                  {React.cloneElement(value.icon as React.ReactElement, { size: 32 })}
+                  {/* Dan kelinma component ekak widiyata size eka danna puluwan */}
+                  <Icon size={32} />
                 </div>
                 <h4 className="text-white font-bold uppercase mb-3">{value.title}</h4>
                 <p className="text-gray-500 text-sm">{value.desc}</p>
               </motion.div>
-            ))}
-          </div>
+            );
+          })}
         </div>
 
         {/* Section 3: Vision CTA */}
